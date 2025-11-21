@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Approval page</title>
+	<style>
+div { 
+	display: block; 
+}
+</style>
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
+
+
+</head>
+
+<body bgcolor="#CFCFCF">
+	
+<div w3-include-html="menu-pband-sk.html"></div>
+
+<script>
+includeHTML();
+</script>
+
+
+<hr />
+
+<div>	
+	
+
+	<table>
+		<tr>
+			<td colspan="5">
+			<p><font face="Arial, Helvetica, sans-serif">Jumbotron 1920x1080</font></p>
+			</td>
+		</tr>
+		
+		<tr>
+			<td colspan="5">
+			<p><font face="Arial, Helvetica, sans-serif">Tickets on Sale Now</font></p>
+       		<p><img src="kraken/Jumbotron-TixOnSaleNow-A-1920x1080.png" width="960" alt=""/></p>
+			</td>
+		</tr>
+		
+		<tr>
+		  	<td colspan="5">
+			<p><font face="Arial, Helvetica, sans-serif">KRAKEN20</font></p>
+       		<p><img src="kraken/Jumbotron-Kraken20-A-1920x1080.png" width="960" alt=""/></p>
+			</td>
+		</tr>
+				
+		<tr valign="top">
+			<td>
+			<p><font face="Arial, Helvetica, sans-serif">Email Image</font></p>
+       		<p><img src="kraken/Email-image-1200x800.png" width="600" alt=""/></p>
+			</td>
+			
+			<td width="auto"></td>
+			
+		</tr>
+		
+	</table>
+
+<p></p>
+
+</div>
+	<hr />
+</body>
+</html>
